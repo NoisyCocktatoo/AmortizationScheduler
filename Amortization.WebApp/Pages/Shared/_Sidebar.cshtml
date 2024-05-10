@@ -1,0 +1,70 @@
+﻿@{
+}
+
+<div id="sidebar" class="sidebar sidebar-white sidebar-fixed sidebar-backdrop expandable" data-swipe="true" data-dismiss="true">
+    <div class="sidebar-inner">
+        <div class="pt-2 flex-grow-1 ace-scroll" data-ace-scroll="{}">
+            <div class="d-none d-xl-flex sidebar-section-item m-0 fadeable-left fadeable-top">
+                <div class="fadeinable">
+                    <div class="py-2 mx-1 border-b-1 brc-secondary-l3" id="sidebar-header-brand1">
+                        <a class="navbar-brand text-140">
+                            <img src="" width="60px" style="object-fit: contain;" />
+                        </a>
+                    </div>
+                </div>
+                <div class="fadeable w-100 ">
+                    <div class="py-2 text-center mx-3 border-b-1 brc-secondary-l3" id="sidebar-header-brand2" style="max-height: 200px; overflow: hidden;">
+                        <img src="" style="max-height: 100%; max-width: 100%; width: auto;">
+                    </div>
+                </div>
+            </div>
+            <nav aria-label="Main">
+                <ul class="nav flex-column mt-2 has-active-border">
+                    <li class="nav-item hhover">
+                        <a menuvalue="/Dashboards/Index" class="nav-link vmenu radius-1">
+                            <i class="nav-icon fa fa-tachometer-alt text-120 mx-2"></i>
+                            <span class="nav-text fadeable">
+                                <span>Dashboard</span>
+                            </span>
+                        </a>
+                        <b class="sub-arrow"></b>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle dropdown radius-1">
+                            <i class="nav-icon fas fa-users text-120 mx-2"></i>
+                            <span class="nav-text fadeable">
+                                <span>Transactions</span>
+                            </span>
+                            <b class="caret fa fa-angle-left rt-n90"></b>
+                        </a>
+                        <div class="hideable submenu collapse">
+                            <ul class="submenu-inner">
+                                <li class="nav-item hhover">
+                                    <a menuvalue="/Projects/Index?handler=List" class="nav-link vmenu radius-1 dropdown-list">
+                                        <span class="nav-text fadeable">
+                                            <span>Projects</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item hhover">
+                                    <a menuvalue="/Buyers/Index?handler=List" class="nav-link vmenu radius-1 dropdown-list">
+                                        <span class="nav-text fadeable">
+                                            <span>Buyers</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item hhover">
+                                    <a menuvalue="/Loans/Index?handler=List" class="nav-link vmenu radius-1 dropdown-list">
+                                        <span class="nav-text fadeable">
+                                            <span>Loans</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div><!-- /.ace-scroll -->
+    </div>
+</div>

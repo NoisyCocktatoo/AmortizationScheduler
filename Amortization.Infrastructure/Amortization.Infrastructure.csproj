@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Amortization.Application\Amortization.Application.csproj" />
+    <ProjectReference Include="..\Amortization.Domain\Amortization.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

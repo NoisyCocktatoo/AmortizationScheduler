@@ -1,0 +1,71 @@
+﻿
+<div class="mt-3">
+    <div class="page-header border-0 mb-3 mt-n3">
+        <h1 class="page-title text-dark-tp3 text-150">
+            Dashboard
+        </h1>
+    </div>
+    <div class="d-flex col-12 mt-3">
+        <div class="col-12 d-flex justify-content-between">
+            <div class="col-4">
+                <div class="bcard d-flex flex-column text-center px-2 py-3 h-100">
+                    <div class="mb-1">
+                        <span class="d-inline-block bgc-secondary-l3 p-3 radius-round">
+                            <i class="fas fa-hotel text-success-m2 text-170 w-4"></i>
+                        </span>
+                    </div>
+
+                    <div class="mt-1">
+                        <div class="text-secondary-d3 text-180">
+                            @Model.DashboardData.TotalProject
+                        </div>
+                        <div class="text-dark-tp4 text-110">
+                            Projects
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="bcard d-flex flex-column text-center px-2 py-3 h-100">
+                    <div class="mb-1">
+                        <span class="d-inline-block bgc-secondary-l3 p-3 radius-round">
+                            <i class="fas fa-user-tag text-success-m2 text-170 w-4"></i>
+                        </span>
+                    </div>
+
+                    <div class="mt-1">
+                        <div class="text-secondary-d3 text-180">
+                            @Model.DashboardData.TotalBuyer
+                        </div>
+                        <div class="text-dark-tp4 text-110">
+                            Buyers
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="bcard d-flex flex-column text-center px-2 py-3 h-100">
+                    <div class="mb-1">
+                        <span class="d-inline-block bgc-secondary-l3 p-3 radius-round">
+                            <i class="fas fa-coins text-success-m2 text-170 w-4"></i>
+                        </span>
+                    </div>
+
+                    <div class="mt-1">
+                        <div class="text-secondary-d3 text-180">
+                            @Model.DashboardData.TotalLoan
+                        </div>
+                        <div class="text-dark-tp4 text-110">
+                            Total Loans
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

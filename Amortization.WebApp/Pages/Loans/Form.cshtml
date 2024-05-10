@@ -1,0 +1,58 @@
+﻿@model Amortization.WebApp.Pages.Loans.IndexModel
+
+<div class="d-flex flex-column align-items-center">
+    <input type="hidden" asp-for="Loan.LoanId" id="loanId" />
+    <input type="hidden" asp-for="Loan.CreateDate" />
+    <div class="col-lg-12">
+        <label for="project" class="mr-3font-weight-bold">
+            Project<span class="text-danger">*</span>
+        </label>
+
+        <select class="ace-select" id="project" asp-for="Loan.ProjectId" onchange="onProjectChange()" aqreq>
+            <option selected value="@Model.Project.ProjectId">@Model.Project.Name</option>
+            @foreach (var project in Model.ProjectList)
+            {
+                <option value="@project.ProjectId">@project.Name</option>
+            }
+        </select>
+
+        <label for="unit" class="mr-3 mt-3 font-weight-bold">
+            Unit<span class="text-danger">*</span>
+        </label>
+        <select class="ace-select" id="unit" asp-for="Loan.UnitId"  aqreq>
+            <option selected value="@Model.Unit.UnitId">@Model.Unit.CondoUnit</option>
+            @foreach (var unit in Model.UnitList)
+            {
+                <option value="@unit.UnitId">@unit.CondoUnit</option>
+            }
+        </select>
+
+        <label for="buyer" class="mr-3 mt-3 font-weight-bold">
+            Buyer<span class="text-danger">*</span>
+        </label>
+        <ejs-combobox id="buyer" ejs-for="Loan.BuyerId" dataSource="Model.BuyerList" allowFiltering="true" floatLabelType="Always">
+            <e-combobox-fields value="BuyerId" text="Name"></e-combobox-fields>
+        </ejs-combobox>
+
+        <label for="loanAmount" class="mr-3 mt-3 font-weight-bold">
+            Loan Amount (PHP)<span class="text-danger">*</span>
+        </label>
+        <input type="number" class="form-control form-control-md shadow-none" id="loanAmount" asp-for="Loan.LoanAmount" aqreq>
+
+        <label for="paymentTerm" class="mr-3 mt-3 font-weight-bold">
+            Payment Term (months)<span class="text-danger">*</span>
+        </label>
+        <input type="number" class="form-control form-control-md shadow-none" id="paymentTerm" asp-for="Loan.PaymentTerm" aqreq>
+
+        <label for="paymentStart" class="mr-3 mt-3 font-weight-bold">
+            Payment Start<span class="text-danger">*</span>
+        </label>
+        <ejs-datepicker id="paymentStart" ejs-for="Loan.PaymentStart" placeholder="Choose a Date" aqreq></ejs-datepicker>
+
+        <label for="interestRate" class="mr-3 mt-3 font-weight-bold">
+            Interest Rate (%)<span class="text-danger">*</span>
+        </label>
+        <input type="number" class="form-control form-control-md shadow-none" id="interestRate" asp-for="Loan.InterestRate" aqreq>
+    </div>
+</div>
+<ejs-scripts></ejs-scripts>

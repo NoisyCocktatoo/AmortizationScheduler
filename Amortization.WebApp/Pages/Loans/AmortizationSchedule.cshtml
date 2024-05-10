@@ -1,0 +1,91 @@
+﻿@using Amortization.Application.Constants
+@model Amortization.WebApp.Pages.Loans.IndexModel
+
+<div class="px-4 pt-4">
+    <div class="page-header border-0 mb-3 mt-n3">
+        <h1 class="page-title text-dark-tp3 text-150">
+            @if(Model.Origin > 0)
+            {
+                <span class="hhover hover-underline" id="btnBack">Back</span>
+            } else
+            {
+                <span class="hhover hover-underline" id="btnBack2">Back</span>
+            }
+           
+            <small class="page-info text-orange text-nowrap font-bold">
+                <i class="fa fa-angle-double-right text-80"></i>
+                Schedule
+            </small>
+        </h1>
+    </div>
+</div>
+<div class="container-fluid px-0" id="records">
+    <div class="card radius-4 overflow-hidden py-3 mx-3">
+        <div class="card-header shadow-none bgc-white border-0 d-flex flex-column flex-lg-row flex-md-row align-items-start align-items-lg-center align-items-md-center justify-content-between mb-3">
+
+            <div class="d-flex flex-column mt-4 mt-lg-0 mt-md-0 pl-0 pr-3" style="width: 100%;">
+                <div class="col-12 d-flex flex-column">
+                    <h4 class="text-primary">Buyers Information</h4>
+                    <hr />
+                    <div class="d-flex flex-column col-12 row">
+                        <p>Buyer ID: <b>@Model.spBuyerInfo.Imprint_Id</b></p>
+                        <p>Buyers Name: <b>@Model.spBuyerInfo.BuyerName</b></p>
+                        <p>Address: <b>@Model.spBuyerInfo.Address</b></p>
+                    </div>
+                </div>
+                <div class="col-12 d-flex flex-column mt-2">
+                    <h4 class="text-primary">Unit Information</h4>
+                    <hr />
+                    <div class="col-12 d-flex flex-row row">
+                        <div class="d-flex flex-column col-6">
+                            <p><span class="col-6">Project Name: </span> <b>@Model.spBuyerInfo.ProjectName</b></p>
+                            <p><span class="col-6">Loan Amount: </span> <span>PHP </span><b>@Model.spBuyerInfo.LoanAmount</b></p>
+                            @{
+                                string start_date = Model.spBuyerInfo.PaymentStart?.ToString("yyyy-MM-dd");
+                            }
+                            <p><span class="col-6">Payment Start Date: </span> <b>@start_date</b></p>
+
+                        </div>
+                        <div class="d-flex flex-column col-6">
+                            <p><span class="col-6">Condo Unit: </span> <b>@Model.spBuyerInfo.CondoUnit</b></p>
+                            <p><span class="col-6">Payment Term: </span> <b>@Model.spBuyerInfo.PaymentTerm</b><span> months</span></p>
+                            <p><span class="col-6">Interest Rate: </span> <b>@Model.spBuyerInfo.InterestRate %</b></p>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+
+        </div>
+        <div class="card-body px-1 pt-0 ">
+            <ejs-grid id="Grid" class="course-grid"
+                      dataSource='@Model.AmortizationScheduleList'
+                      allowPaging="true"
+                      allowFiltering="true"
+                      toolbar="@(new List<string>() {"Search" })">
+                <e-grid-filterSettings type="Menu"></e-grid-filterSettings>
+                <e-grid-pagesettings pageCount="5"></e-grid-pagesettings>
+                <e-grid-columns>
+                    <e-grid-column field="ScheduleId" headerText="LoanId" isPrimaryKey="true" visible="false" />
+                    <e-grid-column field="PaymentDate" headerText="Date" format="MMM dd, yyyy"></e-grid-column>
+                    <e-grid-column field="Principal" headerText="Principal (PHP)"></e-grid-column>
+                    <e-grid-column field="Interest" headerText="Interest (PHP)"></e-grid-column>
+                    <e-grid-column field="Total" headerText="Total (PHP)"></e-grid-column>
+                    <e-grid-column field="Balance" headerText="Balance (PHP)"></e-grid-column>
+                    <e-grid-column field="No_of_Days" headerText="No. of Days"></e-grid-column>
+                </e-grid-columns>
+            </ejs-grid>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#btnBack').click(function () {
+        LoadPage("/Loans/Index?handler=List");
+    });
+
+    $('#btnBack2').click(function () {
+        LoadPage("/Loans/Index?handler=FilteredList&buyerId=" + @Model.spBuyerInfo.BuyerId);
+    });
+</script>
+<ejs-scripts></ejs-scripts>
